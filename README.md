@@ -4,7 +4,7 @@ This script tools can help you to verify if you Fortinet Firewall could be targe
 
 Thanks to SHADOW BROKERS for disclosure.
 
-code-block:: bash
+```
 
 ######## Fortinet NSA checking tool ############
 # Author:   Fabio Natalucci                    #
@@ -15,3 +15,4 @@ code-block:: bash
 #       and to Shadow Brokers for disclosure   #
 ################################################
 USAGE: ./check_fortinet_ip -i IP
+```
