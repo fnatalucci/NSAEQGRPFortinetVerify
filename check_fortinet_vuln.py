@@ -6,7 +6,10 @@ import sys, getopt, os.path, os, requests
 def usage():
 	print ""
 	print "######## Fortinet NSA checking tool ############"
-	print "######## Author by Fabio Natalucci #############"
+	print "# Author by Fabio Natalucci        #############"
+	print "# Twitter @fabionatalucci          #############"
+	print "# Website https://www.fabionatalucci.it        #"
+	print "# 				BIG THANKS TO..      	      #"
 	print "# with collaboration of NSA and Equation Group #"
 	print "#   Thanks to Shadow Brokers for disclosure    #"
 	print "################################################"
@@ -20,10 +23,6 @@ def verifyConfig():
 	else: sys.exit(2)
 
 def verifyVuln(n):
-	#conn = httplib.HTTPConnection("http://"+n, )
-	#conn.request("HEAD", "/")
-	#res = conn.getresponse()
-	#print res.()*/
 	r = requests.get('https://'+n, verify=False)
 	etag = r.headers['ETag'].replace('"',"").split('_',2)[-1]
 	if etag in open('EGBL.config').read():
