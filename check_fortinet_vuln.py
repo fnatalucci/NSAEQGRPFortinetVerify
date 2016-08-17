@@ -26,6 +26,12 @@ def verifyConfig():
     else: sys.exit(2)
 
 def verifyVuln(n):
+    try:
+        requests.get('https://'+n, verify=False, timeout=10)
+    except requests.exceptions.RequestException as e:   
+        print e
+        sys.exit(1)
+
     r = requests.get('https://'+n, verify=False)
 
     etag = r.headers['ETag'].replace('"',"").split('_',2)[-1]
