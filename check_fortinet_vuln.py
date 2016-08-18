@@ -4,7 +4,7 @@ import sys, getopt, os.path, os, urllib3
 import requests 
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+requests.packages.urllib3.disable_warnings()
 #verifico se esiste il file EGBL.config
 def usage():
     print ""
