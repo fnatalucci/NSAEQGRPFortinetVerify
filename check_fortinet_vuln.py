@@ -26,9 +26,15 @@ def verifyConfig():
     else: sys.exit(2)
 
 def verifyVuln(n):
-    r = requests.get('https://'+n, verify=False)
-
+    try:
+        r=requests.get('https://'+n, verify=False, timeout=10)
+    except requests.exceptions.RequestException as e:   
+        print e
+        sys.exit(1)
+    
+    #debug print r.headers['ETag']
     etag = r.headers['ETag'].replace('"',"").split('_',2)[-1]
+    
     if etag in open('EGBL.config').read():
         print ''
         print '----> VULNERABLE ! '
